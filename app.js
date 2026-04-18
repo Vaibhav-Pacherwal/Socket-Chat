@@ -9,7 +9,12 @@ dotenv.config();
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+  }
+});
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -35,7 +40,7 @@ io.on("connection", async (socket) => {
     });
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const start = () => {
     server.listen(port, () => {
         console.log(`server running at http://localhost:${port}`);
