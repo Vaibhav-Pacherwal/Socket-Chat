@@ -8,6 +8,7 @@
   "engines": {
     "node": "18.x"
   },
+  "type": "module",
   "author": "Vaibhav Pacherwal",
   "license": "ISC",
   "description": "",
